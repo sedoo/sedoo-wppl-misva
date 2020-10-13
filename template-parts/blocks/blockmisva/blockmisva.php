@@ -1,48 +1,77 @@
 <?php
+$admin_or_not = $_COOKIE['related_Admin'];
+if($admin_or_not == 1) {
+    ?>
+    <style>
+    div.sedoo_related_block_admin_block {
+        text-align: center;
+        background: #c8c8c8;
+        color:#535050;
+        padding: 15px;
+        padding-top: 1px;
+    }
+    </style>
+    <?php 
+        echo '<div class="sedoo_related_block_admin_block"><h2> Block de composant Misva </h2> <span> Visible seulement en front-office </span></div>';
+} else {
+        ////////
+        // Je crée ma classe pour l'alignement wordpress etc
+        ////////
+        if( !empty($block['className']) ) {
+            $className .= ' ' . $block['className'];
+        }
+        if( !empty($block['align']) ) {
+            $className .= ' align' . $block['align'];
+        }
 
-////////
-// Je crée ma classe pour l'alignement wordpress etc
-////////
-if( !empty($block['className']) ) {
-    $className .= ' ' . $block['className'];
-}
-if( !empty($block['align']) ) {
-    $className .= ' align' . $block['align'];
-}
+        ////////
+        // Je recupuère le viewer utilisé dans le bloc
+        ////////
+        $viewer_misva = get_field('type_de_viewer_a_charger');
 
-////////
-// Je recupuère le viewer utilisé dans le bloc
-////////
-$viewer_misva = get_field('type_de_viewer_a_charger');
-
-////////
-// Je récupère les lignes de scripts du viewer et les affiche
-///////
-if( have_rows('elements_inclus_misva', $viewer_misva[0]) ):
-    while( have_rows('elements_inclus_misva', $viewer_misva[0]) ): the_row(); 
-        echo the_sub_field('script_misva', $viewer_misva[0]);
-    endwhile; 
-endif;
-
-////////
-// J'afiche la section composant Misva avec les attributs qui vont bien
-///////
-$string_construct_attributes;
-if( have_rows('repeteur_attributs_misva') ):
-    while( have_rows('repeteur_attributs_misva') ): the_row(); 
-        $string_construct_attributes .= get_sub_field('nom_de_lattribut');
-        $string_construct_attributes .= '="'.get_sub_field('valeur_de_lattribut').'"';
-    endwhile; 
-endif;
+        
+        ////////
+        // Je récupère les lignes de scripts du viewer et les affiche
+        ///////
+        if( have_rows('elements_inclus_misva', $viewer_misva[0]) ):
+            while( have_rows('elements_inclus_misva', $viewer_misva[0]) ): the_row(); 
+                echo the_sub_field('script_misva', $viewer_misva[0]);
+            endwhile; 
+        endif;
+        
+        
+        ////////
+        // Je récupère les produits dans le champs
+        ///////
+        $produits = get_field('produits_a_afficher');
+        $listing_produit;
+        foreach($produits as $produits) {
+            $listing_produit .= sanitize_title(get_the_title($produits)).',';
+        }
+        $listing_produit = substr($listing_produit,0,-1);
 
 
-////////
-// Je stock le nom de la balise
-///////
-$nom_balise = get_field('nom_de_la_balise');
-?>
+        ////////
+        // Je crée la chaîne d'attributs/valeurs qui seront utilisés
+        ///////
+        if( have_rows('repeteur_attributs_misva') ):
+            while( have_rows('repeteur_attributs_misva') ): the_row(); 
+                $string_construct_attributes .= get_sub_field('nom_de_lattribut');
+                $string_construct_attributes .= '="'.get_sub_field('valeur_de_lattribut').'"';
+            endwhile; 
+        endif;
 
-<section class="sedoo-misva-component <?php echo $className;?>">
-    <?php echo '<'.$nom_balise.' '.$string_construct_attributes.'> </'.$nom_balise.'>'; ?>
-</section>
 
+        ////////
+        // Je stock le nom de la balise
+        ///////
+        $nom_balise = get_field('nom_de_la_balise');
+        ?>
+
+        <!--////////
+        // J'afiche la section composant Misva avec les attributs et la classe
+        ///////-->
+        <section class="sedoo-misva-component <?php echo $className;?>">
+            <?php echo '<'.$nom_balise.' '.$string_construct_attributes.'product='.$listing_produit.'> </'.$nom_balise.'>'; ?>
+        </section>
+<?php } ?>
