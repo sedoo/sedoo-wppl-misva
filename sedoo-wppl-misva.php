@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Sedoo - VUE JS Misva
  * Description: Permet l'affichage des composants par le chargement de viewers Misva
- * Version: 0.0.4
+ * Version: 0.0.5
  * Author: Nicolas Gruwe 
  * GitHub Plugin URI: sedoo/sedoo-wppl-misva
  * GitHub Branch:     master
@@ -122,16 +122,12 @@ function sedoo_misva_register() {
 add_action( 'init', 'sedoo_misva_register', 0 );
 
 
-/**
- * Enable unfiltered_html capability for Editors.
- *
- */
-if (!function_exists('km_add_unfiltered_html_capability_to_editors')) {
-	function km_add_unfiltered_html_capability_to_editors( $caps, $cap, $user_id ) {
-		if ( 'unfiltered_html' === $cap && user_can( $user_id, 'editor' ) ) {
-		$caps = array( 'unfiltered_html' );
-		}
-		return $caps;
-	}
-	add_filter( 'map_meta_cap', 'km_add_unfiltered_html_capability_to_editors', 1, 3 );
-}
+
+////////
+// Embed css for the front
+///////
+function enqueue_search_style() {
+    wp_register_style( 'sedoo_misva_css', plugins_url('css/misva.css', __FILE__) );
+    wp_enqueue_style( 'sedoo_misva_css' );
+  }
+  add_action( 'wp_head', 'enqueue_search_style' );
