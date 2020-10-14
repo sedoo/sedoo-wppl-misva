@@ -250,7 +250,7 @@ if( function_exists('acf_add_local_field_group') ):
 				'label' => 'Mail',
 				'name' => 'mail',
 				'type' => 'email',
-				'instructions' => '',
+				'instructions' => 'E-mail du PI',
 				'required' => 0,
 				'conditional_logic' => 0,
 				'wrapper' => array(
