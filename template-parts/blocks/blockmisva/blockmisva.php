@@ -1,5 +1,6 @@
 <?php
 $admin_or_not = $_COOKIE['related_Admin'];
+var_dump($admin_or_not);
 if($admin_or_not == 1) {
     ?>
     <style>
