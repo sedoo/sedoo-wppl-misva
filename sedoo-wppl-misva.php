@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Sedoo - VUE JS Misva
  * Description: Permet l'affichage des composants par le chargement de viewers Misva
- * Version: 0.0.8
+ * Version: 0.0.9
  * Author: Nicolas Gruwe 
  * GitHub Plugin URI: sedoo/sedoo-wppl-misva
  * GitHub Branch:     master
@@ -50,7 +50,7 @@ function sedoo_misva_register() {
 		'description'           => __( 'Elements Misva', 'text_domain' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title','author','revisions'),
-		'taxonomies'            => array( 'category', 'post_tag' ),
+		'taxonomies'            => '',
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
@@ -102,7 +102,7 @@ function sedoo_misva_register() {
 		'description'           => __( 'Produits de campagnes Misva', 'text_domain' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title' ),
-		'taxonomies'            => array( 'category', 'post_tag' ),
+		'taxonomies'            => array( 'category' ),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
