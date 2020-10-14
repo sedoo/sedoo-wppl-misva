@@ -1,7 +1,5 @@
 <?php
-$admin_or_not = $_COOKIE['related_Admin'];
-var_dump($admin_or_not);
-if($admin_or_not == 1) {
+if(is_admin() == true) {
     ?>
     <style>
     div.sedoo_related_block_admin_block {
