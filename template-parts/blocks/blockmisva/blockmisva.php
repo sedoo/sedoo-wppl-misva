@@ -1,5 +1,8 @@
 <?php
 if(is_admin() == true) {
+    ///////
+    // Pas besoin de montrer le composant si je suis en Admin, juste dire qu'il est la
+    //////
     ?>
     <style>
     div.sedoo_related_block_admin_block {
@@ -30,7 +33,7 @@ if(is_admin() == true) {
 
         
         ////////
-        // Je récupère les lignes de scripts du viewer et les affiche
+        // Je récupère les lignes de scripts (css et js) du viewer et les affiche
         ///////
         if( have_rows('elements_inclus_misva', $viewer_misva[0]) ):
             while( have_rows('elements_inclus_misva', $viewer_misva[0]) ): the_row(); 
