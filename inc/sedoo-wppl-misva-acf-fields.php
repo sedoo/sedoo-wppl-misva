@@ -13,7 +13,7 @@ if( function_exists('acf_add_local_field_group') ):
 				'label' => 'Elements inclus',
 				'name' => 'elements_inclus_misva',
 				'type' => 'repeater',
-				'instructions' => 'Insérer les lignes d\'inclusion des fichiers css ou js',
+				'instructions' => 'Insérer les lignes d\'inclusion des fichiers css, js, typographiques',
 				'required' => 0,
 				'conditional_logic' => 0,
 				'wrapper' => array(
@@ -32,7 +32,7 @@ if( function_exists('acf_add_local_field_group') ):
 						'label' => 'Ligne de script',
 						'name' => 'script_misva',
 						'type' => 'text',
-						'instructions' => 'En incluant les balises < style > ou < script >',
+						'instructions' => 'Les lignes complètes, incluant les balises < link > ou < script >',
 						'required' => 0,
 						'conditional_logic' => 0,
 						'wrapper' => array(
@@ -47,86 +47,13 @@ if( function_exists('acf_add_local_field_group') ):
 						'maxlength' => '',
 					),
 				),
-			)
-		),
-		'location' => array(
-			array(
-				array(
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'misva_viewers',
-				),
-			),
-		),
-		'menu_order' => 0,
-		'position' => 'normal',
-		'style' => 'default',
-		'label_placement' => 'top',
-		'instruction_placement' => 'label',
-		'hide_on_screen' => '',
-		'active' => true,
-		'description' => '',
-	));
-
-	////////
-	// Fields for the block
-	///////
-	acf_add_local_field_group(array(
-		'key' => 'group_5f846daf38429',
-		'title' => 'Champs pour bloc misva',
-		'fields' => array(
-			array(
-				'key' => 'field_5f846db6e9d25',
-				'label' => 'Type de viewer à charger',
-				'name' => 'type_de_viewer_a_charger',
-				'type' => 'relationship',
-				'instructions' => 'Incluez un viewer spécifique aux données qui seront traitées et affichées.',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'post_type' => array(
-					0 => 'misva_viewers',
-				),
-				'taxonomy' => '',
-				'filters' => '',
-				'elements' => '',
-				'min' => '0',
-				'max' => '1',
-				'return_format' => 'id',
-			),
-			array(
-				'key' => 'field_5f858dbfb1014',
-				'label' => 'Produits à afficher',
-				'name' => 'produits_a_afficher',
-				'type' => 'relationship',
-				'instructions' => 'Plusieurs possibles sont sélectionnables pour effectuer une comparaison.',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'post_type' => array(
-					0 => 'sedoo_misva_products',
-				),
-				'taxonomy' => '',
-				'filters' => '',
-				'elements' => '',
-				'min' => '',
-				'max' => '',
-				'return_format' => 'id',
 			),
 			array(
 				'key' => 'field_5f846de9e9d26',
-				'label' => 'Attributs et valeurs supplémentaires',
+				'label' => 'Attributs et valeurs du viewer',
 				'name' => 'repeteur_attributs_misva',
 				'type' => 'repeater',
-				'instructions' => 'Insérez ici , sur chaque ligne les couples attributs et valeurs supplémentaires',
+				'instructions' => 'Insérez ici, sur chaque ligne les couples attributs et valeurs',
 				'required' => 0,
 				'conditional_logic' => 0,
 				'wrapper' => array(
@@ -185,7 +112,7 @@ if( function_exists('acf_add_local_field_group') ):
 				'label' => 'Nom de la balise',
 				'name' => 'nom_de_la_balise',
 				'type' => 'text',
-				'instructions' => 'Insérez ici le nom de la balise de votre composant',
+				'instructions' => 'Insérez ici le nom de la balise du viewer',
 				'required' => 1,
 				'conditional_logic' => 0,
 				'wrapper' => array(
@@ -198,6 +125,81 @@ if( function_exists('acf_add_local_field_group') ):
 				'prepend' => '',
 				'append' => '',
 				'maxlength' => '',
+			),
+		),
+		'location' => array(
+			array(
+				array(
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'misva_viewers',
+				),
+			),
+		),
+		'menu_order' => 0,
+		'position' => 'normal',
+		'style' => 'default',
+		'label_placement' => 'top',
+		'instruction_placement' => 'label',
+		'hide_on_screen' => '',
+		'active' => true,
+		'description' => '',
+	));
+
+	////////
+	// Fields for the block
+	///////
+	acf_add_local_field_group(array(
+		'key' => 'group_5f846daf38429',
+		'title' => 'Champs pour bloc misva',
+		'fields' => array(
+			array(
+				'key' => 'field_5f846db6e9d25',
+				'label' => 'Type de viewer à charger',
+				'name' => 'type_de_viewer_a_charger',
+				'type' => 'relationship',
+				'instructions' => 'Incluez un viewer spécifique aux données qui seront traitées et affichées.',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'post_type' => array(
+					0 => 'misva_viewers',
+				),
+				'taxonomy' => '',
+				'filters' => '',
+				'elements' => '',
+				'min' => '0',
+				'max' => '1',
+				'return_format' => 'id',
+			),
+			array(
+				'key' => 'field_5f858dbfb1014',
+				'label' => 'Produits à afficher',
+				'name' => 'produits_a_afficher',
+				'type' => 'relationship',
+				'instructions' => 'Plusieurs produits sont sélectionnables.',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'post_type' => array(
+					0 => 'sedoo_misva_products',
+				),
+				'taxonomy' => '',
+				'filters' => array(
+					0 => 'search',
+				),
+				'elements' => '',
+				'min' => '',
+				'max' => '',
+				'return_format' => 'id',
 			),
 		),
 		'location' => array(

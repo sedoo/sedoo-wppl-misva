@@ -54,20 +54,20 @@ if(is_admin() == true) {
 
 
         ////////
-        // Je crée la chaîne d'attributs/valeurs qui seront utilisés
+        // Je crée la chaîne d'attributs/valeurs du viewer qui seront utilisés
         ///////
-        if( have_rows('repeteur_attributs_misva') ):
-            while( have_rows('repeteur_attributs_misva') ): the_row(); 
-                $string_construct_attributes .= get_sub_field('nom_de_lattribut');
-                $string_construct_attributes .= '="'.get_sub_field('valeur_de_lattribut').'"';
+        if( have_rows('repeteur_attributs_misva', $viewer_misva[0]) ):
+            while( have_rows('repeteur_attributs_misva', $viewer_misva[0]) ): the_row(); 
+                $string_construct_attributes .= get_sub_field('nom_de_lattribut', $viewer_misva[0]);
+                $string_construct_attributes .= '="'.get_sub_field('valeur_de_lattribut', $viewer_misva[0]).'"';
             endwhile; 
         endif;
 
 
         ////////
-        // Je stock le nom de la balise
+        // Je stock le nom de la balise du viewer
         ///////
-        $nom_balise = get_field('nom_de_la_balise');
+        $nom_balise = get_field('nom_de_la_balise', $viewer_misva[0]);
         ?>
 
         <!--////////

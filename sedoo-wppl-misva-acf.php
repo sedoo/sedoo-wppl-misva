@@ -9,8 +9,8 @@ function register_acf_block_types_misva() {
         'description'       => __('Ajoute un viewer Misva'),
         'render_callback'   => 'sedoo_blocks_components_render_callback_misva',
         'category'          => 'widgets',
-        'icon'              => 'admin-comments',
-        'keywords'          => array( 'Misva', 'sedoo' ),
+        'icon'              => 'dashicons-admin-site-alt2',
+        'keywords'          => array( 'Misva', 'viewers', 'sedoo' ),
     ));
 }
 
