@@ -1,0 +1,9 @@
+.sedoo-misva-component table th ,.sedoo-misva-component  table td {
+    border:none;
+}
+
+.sedoo-misva-component h4{
+    font-family: Roboto,sans-serif;
+    font-weight: 700;
+    line-height: 24px;
+}
