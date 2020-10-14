@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Sedoo - VUE JS Misva
  * Description: Permet l'affichage des composants par le chargement de viewers Misva
- * Version: 0.0.8
+ * Version: 0.0.9
  * Author: Nicolas Gruwe 
  * GitHub Plugin URI: sedoo/sedoo-wppl-misva
  * GitHub Branch:     master
