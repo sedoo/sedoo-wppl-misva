@@ -25,7 +25,7 @@ if( function_exists('acf_add_local_field_group') ):
 				'min' => 0,
 				'max' => 0,
 				'layout' => 'table',
-				'button_label' => '',
+				'button_label' => '+ Ligne de script',
 				'sub_fields' => array(
 					array(
 						'key' => 'field_5e763e455e7e9',
@@ -65,14 +65,14 @@ if( function_exists('acf_add_local_field_group') ):
 				'min' => 0,
 				'max' => 0,
 				'layout' => 'table',
-				'button_label' => '',
+				'button_label' => '+ Attribut / Valeur',
 				'sub_fields' => array(
 					array(
 						'key' => 'field_5f846e18e9d27',
 						'label' => 'Nom de l\'attribut',
 						'name' => 'nom_de_lattribut',
 						'type' => 'text',
-						'instructions' => '',
+						'instructions' => 'Ex : Service, ..',
 						'required' => 0,
 						'conditional_logic' => 0,
 						'wrapper' => array(
