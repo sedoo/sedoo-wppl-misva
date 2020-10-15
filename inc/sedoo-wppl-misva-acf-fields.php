@@ -180,8 +180,8 @@ if( function_exists('acf_add_local_field_group') ):
 				'key' => 'field_5f858dbfb1014',
 				'label' => 'Produits à afficher',
 				'name' => 'produits_a_afficher',
-				'type' => 'relationship',
-				'instructions' => 'Plusieurs produits sont sélectionnables.',
+				'type' => 'select',
+				'instructions' => '',
 				'required' => 0,
 				'conditional_logic' => 0,
 				'wrapper' => array(
@@ -189,17 +189,36 @@ if( function_exists('acf_add_local_field_group') ):
 					'class' => '',
 					'id' => '',
 				),
-				'post_type' => array(
-					0 => 'sedoo_misva_products',
+				'choices' => array(
 				),
-				'taxonomy' => '',
-				'filters' => array(
-					0 => 'search',
+				'default_value' => array(
 				),
-				'elements' => '',
-				'min' => '',
-				'max' => '',
-				'return_format' => 'id',
+				'allow_null' => 0,
+				'multiple' => 1,
+				'ui' => 1,
+				'ajax' => 0,
+				'return_format' => 'value',
+				'placeholder' => '',
+				// 'type' => 'relationship',
+				// 'instructions' => 'Plusieurs produits sont sélectionnables.',
+				// 'required' => 0,
+				// 'conditional_logic' => 0,
+				// 'wrapper' => array(
+				// 	'width' => '',
+				// 	'class' => '',
+				// 	'id' => '',
+				// ),
+				// 'post_type' => array(
+				// 	0 => 'sedoo_misva_products',
+				// ),
+				// 'taxonomy' => '',
+				// 'filters' => array(
+				// 	0 => 'search',
+				// ),
+				// 'elements' => '',
+				// 'min' => '',
+				// 'max' => '',
+				// 'return_format' => 'id',
 			),
 		),
 		'location' => array(
@@ -221,88 +240,6 @@ if( function_exists('acf_add_local_field_group') ):
 		'description' => '',
 	));
     
-	////////
-	// Fields for the product post type
-	///////
-	acf_add_local_field_group(array(
-		'key' => 'group_5f858f12c0505',
-		'title' => 'Informations supplémentaires',
-		'fields' => array(
-			array(
-				'key' => 'field_5f858f1af536b',
-				'label' => 'Principal Investigator',
-				'name' => 'principal_investigator',
-				'type' => 'text',
-				'instructions' => 'PI',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'default_value' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-				'maxlength' => '',
-			),
-			array(
-				'key' => 'field_5f858f2cf536c',
-				'label' => 'Mail',
-				'name' => 'mail',
-				'type' => 'email',
-				'instructions' => 'E-mail du PI',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'default_value' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-			),
-			array(
-				'key' => 'field_5f858f3df536d',
-				'label' => 'ID',
-				'name' => 'id',
-				'type' => 'text',
-				'instructions' => 'Identifiant du produit',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'default_value' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-				'maxlength' => '',
-			),
-		),
-		'location' => array(
-			array(
-				array(
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'sedoo_misva_products',
-				),
-			),
-		),
-		'menu_order' => 0,
-		'position' => 'normal',
-		'style' => 'default',
-		'label_placement' => 'top',
-		'instruction_placement' => 'label',
-		'hide_on_screen' => '',
-		'active' => true,
-		'description' => '',
-	));
 endif;
 
 
