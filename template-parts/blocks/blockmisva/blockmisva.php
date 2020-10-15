@@ -19,6 +19,7 @@ if(is_admin() == true) {
         ////////
         // Je crée ma classe pour l'alignement wordpress etc
         ////////
+        $className = '';
         if( !empty($block['className']) ) {
             $className .= ' ' . $block['className'];
         }
@@ -46,9 +47,9 @@ if(is_admin() == true) {
         // Je récupère les produits dans le champs
         ///////
         $produits = get_field('produits_a_afficher');
-        $listing_produit;
-        foreach($produits as $produits) {
-            $listing_produit .= sanitize_title(get_the_title($produits)).',';
+        $listing_produit = '';
+        foreach($produits as $produit) {
+            $listing_produit .= $produit;
         }
         $listing_produit = substr($listing_produit,0,-1);
 
@@ -56,6 +57,7 @@ if(is_admin() == true) {
         ////////
         // Je crée la chaîne d'attributs/valeurs du viewer qui seront utilisés
         ///////
+        $string_construct_attributes = '';
         if( have_rows('repeteur_attributs_misva', $viewer_misva[0]) ):
             while( have_rows('repeteur_attributs_misva', $viewer_misva[0]) ): the_row(); 
                 $string_construct_attributes .= get_sub_field('nom_de_lattribut', $viewer_misva[0]);
