@@ -49,10 +49,9 @@ if(is_admin() == true) {
         $produits = get_field('produits_a_afficher');
         $listing_produit = '';
         foreach($produits as $produit) {
-            $listing_produit .= $produit;
+            $listing_produit .= $produit.',';
         }
         $listing_produit = substr($listing_produit,0,-1);
-
 
         ////////
         // Je crée la chaîne d'attributs/valeurs du viewer qui seront utilisés
@@ -76,6 +75,6 @@ if(is_admin() == true) {
         // J'afiche la section composant Misva avec les attributs et la classe
         ///////-->
         <section class="sedoo-misva-component <?php echo $className;?>">
-            <?php echo '<'.$nom_balise.' '.$string_construct_attributes.'product='.$listing_produit.'> </'.$nom_balise.'>'; ?>
+            <?php echo '<'.$nom_balise.' '.$string_construct_attributes.'product="'.$listing_produit.'"> </'.$nom_balise.'>'; ?>
         </section>
 <?php } ?>
