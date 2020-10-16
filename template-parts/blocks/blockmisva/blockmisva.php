@@ -44,17 +44,20 @@ if(is_admin() == true) {
         
         
         ////////
-        // Je récupère les produits dans le champs
+        // Je récupère les produits dans le champs AINSI que leur breadcrumb (title)
         ///////
         $produits = get_field('produits_a_afficher');
         $listing_produit = '';
+        $listing_breadcrumb = '';
         foreach($produits as $produit) {
             // stocker le nom
-            $product_name = $produit['label'];
+            $listing_breadcrumb .= $produit['label'].',';
             // stocker l'id
             $listing_produit .= $produit['value'].',';
         }
+        $listing_breadcrumb = substr($listing_breadcrumb,0,-1);        
         $listing_produit = substr($listing_produit,0,-1);
+
         ////////
         // Je crée la chaîne d'attributs/valeurs du viewer qui seront utilisés
         ///////
@@ -83,6 +86,6 @@ if(is_admin() == true) {
         // J'afiche la section composant Misva avec les attributs et la classe
         ///////-->
         <section class="sedoo-misva-component <?php echo $className;?>">
-            <?php echo '<'.$nom_balise.' '.$string_construct_attributes.' product="'.$listing_produit.'" breadcrumb="'.htmlspecialchars($product_name).'"> </'.$nom_balise.'>'; ?>
+            <?php echo '<'.$nom_balise.' '.$string_construct_attributes.' product="'.$listing_produit.'" breadcrumb="'.htmlspecialchars($listing_breadcrumb).'"> </'.$nom_balise.'>'; ?>
         </section>
 <?php } ?>
